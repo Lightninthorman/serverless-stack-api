@@ -11,10 +11,11 @@ export const main = handler(async (event, context) => {
             noteId: event.pathParameters.id
         },
 
-        UpdateExpression: "SET content = :content, attachment = :attachment",
+        UpdateExpression: "SET content = :content, attachment = :attachment, tags = :tags",
         ExpressionAttributeValues: {
             ":attachment": data.attachment || null,
-            ":content": data.content || null
+            ":content": data.content || null,
+            ":tags": data.tags || null
         },
 
     ReturnValues: "ALL_NEW"
